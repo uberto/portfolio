@@ -1,4 +1,4 @@
-package com.gamasoft.portfolio;
+package com.gamasoft.portfolio.model;
 
 
 import org.springframework.stereotype.Component;

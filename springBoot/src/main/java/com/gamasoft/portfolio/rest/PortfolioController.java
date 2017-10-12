@@ -1,17 +1,15 @@
-package com.gamasoft.portfolio;
+package com.gamasoft.portfolio.rest;
 
+import com.gamasoft.portfolio.model.BuySellOrder;
+import com.gamasoft.portfolio.model.Portfolio;
+import com.gamasoft.portfolio.model.PortfolioConcurrentMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-
 @RestController
 @RequestMapping("/portfolio")
 public class PortfolioController {
-
-    @Autowired
-    private StocksPrices stocksPrices;
 
     @Autowired
     private Portfolio portfolio;
@@ -19,25 +17,21 @@ public class PortfolioController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> executeOrder(@RequestBody BuySellOrder order) {
 
-        portfolio.compute(order.getStockName(), (s, q)-> defZero(q) + order.getQuantity() );
+        portfolio.executeOrder(order);
         return ResponseEntity.accepted().build();
-    }
-
-    private Integer defZero(Integer q) {
-        return q == null ? 0 : q;
     }
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getValue() {
+    public String getPortolio() {
         StringBuilder resp = new StringBuilder( "Your portfolio at the moment is:\n");
         double tot = 0;
-        for (Map.Entry<String, Integer> entry : portfolio.entrySet()) {
-            resp.append(entry.getKey());
+        for (String stockName : portfolio.getAllStocks()) {
+            resp.append(stockName);
             resp.append("  qty: ");
-            resp.append(entry.getValue());
+            resp.append(portfolio.getQuantity(stockName));
             resp.append("  val: ");
-            double val = entry.getValue() * stocksPrices.getOrDefault(entry.getKey(), 0.0);
+            double val = portfolio.getValue(stockName);
             resp.append(val);
             resp.append("\n");
             tot += val;

@@ -1,4 +1,4 @@
-package com.gamasoft.portfolio;
+package com.gamasoft.portfolio.model;
 
 public class BuySellOrder {
     private String stockName;

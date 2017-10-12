@@ -1,4 +1,4 @@
-package com.gamasoft.portfolio;
+package com.gamasoft.portfolio.rest;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;

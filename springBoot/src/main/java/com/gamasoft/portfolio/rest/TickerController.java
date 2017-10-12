@@ -1,5 +1,7 @@
-package com.gamasoft.portfolio;
+package com.gamasoft.portfolio.rest;
 
+import com.gamasoft.portfolio.model.StockPrice;
+import com.gamasoft.portfolio.model.StocksPrices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
