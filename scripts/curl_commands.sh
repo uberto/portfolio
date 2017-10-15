@@ -1,8 +1,8 @@
 #greetings
 curl localhost:8080
 
-write price of a stock
-curl http://localhost:8080/ticker -d @ibm.json --header "Content-Type: application/json"
+#update price of many stocks
+curl http://localhost:8080/ticker -d @stock_prices.json --header "Content-Type: application/json"
 
 #read price of a stock
 curl localhost:8080/ticker?stock=IBM.N
@@ -12,3 +12,4 @@ curl http://localhost:8080/portfolio -d @buy_ibm.json --header "Content-Type: ap
 
 #read portfolio value
 curl localhost:8080/portfolio
+

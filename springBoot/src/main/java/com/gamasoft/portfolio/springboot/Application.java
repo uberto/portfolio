@@ -1,7 +1,5 @@
-package com.gamasoft.portfolio;
+package com.gamasoft.portfolio.springboot;
 
-
-import java.util.Arrays;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

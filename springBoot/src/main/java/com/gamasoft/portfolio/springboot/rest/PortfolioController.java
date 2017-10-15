@@ -1,8 +1,7 @@
-package com.gamasoft.portfolio.rest;
+package com.gamasoft.portfolio.springboot.rest;
 
-import com.gamasoft.portfolio.model.BuySellOrder;
-import com.gamasoft.portfolio.model.Portfolio;
-import com.gamasoft.portfolio.model.PortfolioConcurrentMap;
+import com.gamasoft.portfolio.springboot.model.BuySellOrder;
+import com.gamasoft.portfolio.springboot.model.Portfolio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

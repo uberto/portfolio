@@ -1,10 +1,12 @@
-package com.gamasoft.portfolio.rest;
+package com.gamasoft.portfolio.springboot.rest;
 
-import com.gamasoft.portfolio.model.StockPrice;
-import com.gamasoft.portfolio.model.StocksPrices;
+import com.gamasoft.portfolio.springboot.model.StockPrice;
+import com.gamasoft.portfolio.springboot.model.StocksPrices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/ticker")
@@ -14,9 +16,12 @@ public class TickerController {
     private StocksPrices stocksPrices;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> setStockPrice(@RequestBody StockPrice stockPrice) {
+    public ResponseEntity<?> setStockPrice(@RequestBody StockPrice[] newPrices) {
 
-        stocksPrices.put(stockPrice.getStockName(), stockPrice.getStockPrice());
+        for (StockPrice price : newPrices) {
+
+            stocksPrices.put(price.getStockName(), price.getStockPrice());
+        }
 
         return ResponseEntity.accepted().build();
     }
