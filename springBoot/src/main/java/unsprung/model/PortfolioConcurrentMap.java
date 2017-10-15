@@ -1,8 +1,5 @@
 package unsprung.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -11,7 +8,7 @@ public class PortfolioConcurrentMap implements Portfolio {
 
     Map<String, Integer> stocks = new ConcurrentHashMap<String, Integer>();
 
-    private StocksPrices stocksPrices;
+    private StocksPrices stocksPrices = BigGlobals.getInstance().getStockPrices();
 
     @Override
     public void executeOrder(BuySellOrder order) {

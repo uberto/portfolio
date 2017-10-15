@@ -1,11 +1,11 @@
 package unsprung.rest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import unsprung.model.BigGlobals;
 import unsprung.model.BuySellOrder;
 import unsprung.model.Portfolio;
 
@@ -13,7 +13,7 @@ import unsprung.model.Portfolio;
 @RequestMapping("/portfolio")
 public class PortfolioController {
 
-    private Portfolio portfolio;
+    private Portfolio portfolio = BigGlobals.getInstance().getPortfolio();
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> executeOrder(@RequestBody BuySellOrder order) {
