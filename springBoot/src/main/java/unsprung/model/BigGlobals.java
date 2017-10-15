@@ -2,7 +2,7 @@ package unsprung.model;
 
 public class BigGlobals {
 
-    private static BigGlobals instance = null;
+    private static BigGlobals instance =  new BigGlobals();
 
     private Portfolio portfolio = null;
     private StocksPrices stockPrices = null;
@@ -20,8 +20,6 @@ public class BigGlobals {
     }
 
     public static BigGlobals getInstance() {
-        if (instance == null)
-            instance = new BigGlobals();
         return instance;
     }
 }
