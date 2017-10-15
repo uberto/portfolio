@@ -1,0 +1,18 @@
+[
+  {
+    "stockName": "IBM.N",
+    "stockPrice": 125.1
+  },
+  {
+    "stockName": "VOD.L",
+    "stockPrice": 56.7
+  },
+  {
+    "stockName": "BT.L",
+    "stockPrice": 87.5
+  },
+  {
+    "stockName": "AAPL.OQ",
+    "stockPrice": 1234.5
+  }
+]
