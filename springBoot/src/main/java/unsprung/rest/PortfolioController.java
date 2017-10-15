@@ -1,13 +1,18 @@
 package unsprung.rest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import spark.Request;
+import spark.Response;
 import unsprung.model.BigGlobals;
 import unsprung.model.BuySellOrder;
 import unsprung.model.Portfolio;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/portfolio")
@@ -18,13 +23,22 @@ public class PortfolioController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> executeOrder(@RequestBody BuySellOrder order) {
 
-        portfolio.executeOrder(order);
+        executeOrder(order, portfolio);
         return ResponseEntity.accepted().build();
     }
 
 
     @RequestMapping(method = RequestMethod.GET)
     public String getPortolio() {
+        return getPortfolio(portfolio);
+    }
+
+
+    private static void executeOrder(BuySellOrder order, Portfolio portfolio) {
+        portfolio.executeOrder(order);
+    }
+
+    private static String getPortfolio(Portfolio portfolio) {
         StringBuilder resp = new StringBuilder( "Your portfolio at the moment is:\n");
         double tot = 0;
         for (String stockName : portfolio.getAllStocks()) {
@@ -43,8 +57,26 @@ public class PortfolioController {
 
 
         return resp.toString();
+    }
+
+    public static int executeOrder(Request request, Response response) {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        BuySellOrder order = null;
+        try {
+            order = objectMapper.readValue(request.body(), BuySellOrder.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
+        executeOrder(order, BigGlobals.getInstance().getPortfolio());
 
+        return 201;
+    }
+
+    public static String handleViewPortfolio(Request request, Response response) {
+        return getPortfolio(BigGlobals.getInstance().getPortfolio());
     }
 }
