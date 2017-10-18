@@ -8,7 +8,7 @@ public class PortfolioConcurrentMap implements Portfolio {
 
     Map<String, Integer> stocks = new ConcurrentHashMap<String, Integer>();
 
-    private StocksPrices stocksPrices = BigGlobals.getInstance().getStockPrices();
+    private StocksPrices stocksPrices = BigGlobals.get().getStockPrices();
 
     @Override
     public void executeOrder(BuySellOrder order) {

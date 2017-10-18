@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import spark.Request;
 import spark.Response;
 import unsprung.model.BigGlobals;
+import unsprung.model.ContextMaps;
 import unsprung.model.BuySellOrder;
 import unsprung.model.Portfolio;
 
@@ -18,7 +19,7 @@ import java.io.IOException;
 @RequestMapping("/portfolio")
 public class PortfolioController {
 
-    private Portfolio portfolio = BigGlobals.getInstance().getPortfolio();
+    private Portfolio portfolio = BigGlobals.get().getPortfolio();
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> executeOrder(@RequestBody BuySellOrder order) {
@@ -71,12 +72,12 @@ public class PortfolioController {
         }
 
 
-        executeOrder(order, BigGlobals.getInstance().getPortfolio());
+        executeOrder(order, BigGlobals.get().getPortfolio());
 
         return 201;
     }
 
     public static String handleViewPortfolio(Request request, Response response) {
-        return getPortfolio(BigGlobals.getInstance().getPortfolio());
+        return getPortfolio(BigGlobals.get().getPortfolio());
     }
 }

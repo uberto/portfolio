@@ -5,10 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import spark.Request;
 import spark.Response;
-import unsprung.model.BigGlobals;
-import unsprung.model.BuySellOrder;
-import unsprung.model.StockPrice;
-import unsprung.model.StocksPrices;
+import unsprung.model.*;
 
 import java.io.IOException;
 
@@ -16,7 +13,7 @@ import java.io.IOException;
 @RequestMapping("/ticker")
 public class TickerController {
 
-    private StocksPrices stocksPrices = BigGlobals.getInstance().getStockPrices();
+    private StocksPrices stocksPrices = BigGlobals.get().getStockPrices();
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> setStockPrice(@RequestBody StockPrice[] newPrices) {
@@ -54,7 +51,7 @@ public class TickerController {
             throw new RuntimeException(e);
         }
 
-        setStockPrices(prices, BigGlobals.getInstance().getStockPrices());
+        setStockPrices(prices, BigGlobals.get().getStockPrices());
 
         return 201;
     }
@@ -63,6 +60,6 @@ public class TickerController {
 
 
         String stock = request.queryParamOrDefault("stock", "");
-        return getStockPrice(stock, BigGlobals.getInstance().getStockPrices());
+        return getStockPrice(stock, BigGlobals.get().getStockPrices());
     }
 }
