@@ -1,4 +1,4 @@
-package unsprung.rest;
+package com.gamasoft.portfolio.unsprung.rest;
 
 import static spark.Spark.get;
 import static spark.Spark.port;

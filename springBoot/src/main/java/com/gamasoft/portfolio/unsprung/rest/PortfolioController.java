@@ -1,6 +1,8 @@
-package unsprung.rest;
+package com.gamasoft.portfolio.unsprung.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gamasoft.portfolio.unsprung.model.BuySellOrder;
+import com.gamasoft.portfolio.unsprung.model.Portfolio;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import spark.Request;
 import spark.Response;
-import unsprung.model.BigGlobals;
-import unsprung.model.ContextMaps;
-import unsprung.model.BuySellOrder;
-import unsprung.model.Portfolio;
+import com.gamasoft.portfolio.unsprung.model.BigGlobals;
 
 import java.io.IOException;
 

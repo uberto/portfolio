@@ -1,4 +1,4 @@
-package unsprung.model;
+package com.gamasoft.portfolio.unsprung.model;
 
 public interface Context {
 

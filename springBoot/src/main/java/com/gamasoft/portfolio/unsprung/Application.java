@@ -1,14 +1,10 @@
-package unsprung;
+package com.gamasoft.portfolio.unsprung;
 
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
+import com.gamasoft.portfolio.unsprung.model.ContextMaps;
+import com.gamasoft.portfolio.unsprung.rest.WebServer;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import unsprung.model.BigGlobals;
-import unsprung.model.ContextMaps;
-import unsprung.rest.WebServer;
+import com.gamasoft.portfolio.unsprung.model.BigGlobals;
 
 @SpringBootApplication
 public class Application {

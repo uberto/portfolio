@@ -1,6 +1,9 @@
-package unsprung.rest;
+package com.gamasoft.portfolio.unsprung.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gamasoft.portfolio.unsprung.model.BigGlobals;
+import com.gamasoft.portfolio.unsprung.model.StockPrice;
+import com.gamasoft.portfolio.unsprung.model.StocksPrices;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import spark.Request;
