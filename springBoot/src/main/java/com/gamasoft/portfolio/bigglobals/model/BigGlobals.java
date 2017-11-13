@@ -1,5 +1,5 @@
 
-package com.gamasoft.portfolio.unsprung.model;
+package com.gamasoft.portfolio.bigglobals.model;
 
 public class BigGlobals {
     static private Context instance;

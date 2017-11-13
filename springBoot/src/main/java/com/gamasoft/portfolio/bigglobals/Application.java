@@ -1,10 +1,10 @@
-package com.gamasoft.portfolio.unsprung;
+package com.gamasoft.portfolio.bigglobals;
 
 
-import com.gamasoft.portfolio.unsprung.model.ContextMaps;
-import com.gamasoft.portfolio.unsprung.rest.WebServer;
+import com.gamasoft.portfolio.bigglobals.model.ContextMaps;
+import com.gamasoft.portfolio.bigglobals.rest.WebServer;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import com.gamasoft.portfolio.unsprung.model.BigGlobals;
+import com.gamasoft.portfolio.bigglobals.model.BigGlobals;
 
 @SpringBootApplication
 public class Application {

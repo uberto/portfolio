@@ -1,38 +1,17 @@
-package com.gamasoft.portfolio.unsprung.rest;
+package com.gamasoft.portfolio.bigglobals.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gamasoft.portfolio.unsprung.model.BuySellOrder;
-import com.gamasoft.portfolio.unsprung.model.Portfolio;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.gamasoft.portfolio.bigglobals.model.BuySellOrder;
+import com.gamasoft.portfolio.bigglobals.model.Portfolio;
 import spark.Request;
 import spark.Response;
-import com.gamasoft.portfolio.unsprung.model.BigGlobals;
+import com.gamasoft.portfolio.bigglobals.model.BigGlobals;
 
 import java.io.IOException;
 
-@RestController
-@RequestMapping("/portfolio")
 public class PortfolioController {
 
     private Portfolio portfolio = BigGlobals.get().getPortfolio();
-
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> executeOrder(@RequestBody BuySellOrder order) {
-
-        executeOrder(order, portfolio);
-        return ResponseEntity.accepted().build();
-    }
-
-
-    @RequestMapping(method = RequestMethod.GET)
-    public String getPortolio() {
-        return getPortfolio(portfolio);
-    }
-
 
     private static void executeOrder(BuySellOrder order, Portfolio portfolio) {
         portfolio.executeOrder(order);

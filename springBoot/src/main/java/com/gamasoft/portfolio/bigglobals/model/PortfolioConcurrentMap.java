@@ -1,4 +1,4 @@
-package com.gamasoft.portfolio.unsprung.model;
+package com.gamasoft.portfolio.bigglobals.model;
 
 import java.util.Map;
 import java.util.Set;

@@ -1,8 +1,6 @@
-package com.gamasoft.portfolio.unsprung.model;
+package com.gamasoft.portfolio.bigglobals.model;
 
 public class ContextMaps implements Context {
-
-    private static Context instance =  new ContextMaps();
 
     private Portfolio portfolio = null;
     private StocksPrices stockPrices = null;
@@ -20,6 +18,5 @@ public class ContextMaps implements Context {
             stockPrices = new StocksPrices();
         return stockPrices;
     }
-
 
 }
