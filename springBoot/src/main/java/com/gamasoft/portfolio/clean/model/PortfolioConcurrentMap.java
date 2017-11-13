@@ -36,7 +36,7 @@ public class PortfolioConcurrentMap implements Portfolio {
 
     @Override
     public double getValue(String stockName) {
-        return getQuantity(stockName) * stocksPrices.getOrDefault(stockName, 0.0);
+        return getQuantity(stockName) * stocksPrices.getPrice(stockName);
 
     }
 }

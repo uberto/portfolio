@@ -17,13 +17,13 @@ public class TickerController {
     }
 
     private String getStockPrice(String stock) {
-        return "The price for " + stock + " is " + stocksPrices.getOrDefault(stock, 0.0) + "\n";
+        return "The price for " + stock + " is " + stocksPrices.getPrice(stock) + "\n";
     }
 
     private void setStockPrices(StockPrice[] newPrices) {
         for (StockPrice price : newPrices) {
 
-            stocksPrices.put(price.getStockName(), price.getStockPrice());
+            stocksPrices.put(price.getStockName(), price);
         }
     }
 

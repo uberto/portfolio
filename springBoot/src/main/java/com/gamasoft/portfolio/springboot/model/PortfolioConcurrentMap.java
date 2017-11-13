@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class PortfolioConcurrentMap implements Portfolio {
 
+
     Map<String, Integer> stocks = new ConcurrentHashMap<String, Integer>();
 
     @Autowired
@@ -37,7 +38,7 @@ public class PortfolioConcurrentMap implements Portfolio {
 
     @Override
     public double getValue(String stockName) {
-        return getQuantity(stockName) * stocksPrices.getOrDefault(stockName, 0.0);
+        return getQuantity(stockName) * stocksPrices.getPrice(stockName);
 
     }
 }

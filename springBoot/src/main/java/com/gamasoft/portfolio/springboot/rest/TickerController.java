@@ -20,7 +20,7 @@ public class TickerController {
 
         for (StockPrice price : newPrices) {
 
-            stocksPrices.put(price.getStockName(), price.getStockPrice());
+            stocksPrices.put(price.getStockName(), price);
         }
 
         return ResponseEntity.accepted().build();
@@ -29,6 +29,6 @@ public class TickerController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String getStockPrice(@RequestParam(value="stock") String stock) {
-        return "The price for " + stock + " is " + stocksPrices.getOrDefault(stock, 0.0) + "\n";
+        return "The price for " + stock + " is " + stocksPrices.getPrice(stock) + "\n";
     }
 }

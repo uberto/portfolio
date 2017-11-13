@@ -32,13 +32,13 @@ public class TickerController {
     }
 
     private static String getStockPrice(String stock, StocksPrices stocksPrices) {
-        return "The price for " + stock + " is " + stocksPrices.getOrDefault(stock, 0.0) + "\n";
+        return "The price for " + stock + " is " + stocksPrices.getPrice(stock) + "\n";
     }
 
     private static void setStockPrices(StockPrice[] newPrices, StocksPrices stocksPrices) {
         for (StockPrice price : newPrices) {
 
-            stocksPrices.put(price.getStockName(), price.getStockPrice());
+            stocksPrices.put(price.getStockName(), price);
         }
     }
 
