@@ -1,7 +1,8 @@
 # portfolio
-simple restapi app done with Spring Boot and used as an example of how to remove Spring Boot
 
-Well it’s actually quite easy. We can start replacing Spring to-be-injected fields with references to a new BigGlobals class.
+Simple restapi app done with Spring Boot and used as an example of how to remove Spring Boot
+How do we proceed? Well it’s actually quite easy.
+We can start replacing Spring to-be-injected fields with references to a new BigGlobals class.
 To illustrate the method, I created an example of a mini restapi app with SpringBoot, you can find all the sources on my porfolio project on Github.
 Now the application is very simple but, I hope, still shows the good and bad things about SpringBoot. 
 It is a web server exposing some Rest apis, using json as data format:
