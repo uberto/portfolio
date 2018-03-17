@@ -12,7 +12,7 @@ public class WebServer {
 
     public WebServer(StocksPrices stocksPrices, Portfolio portfolio) {
         tickerController = new TickerController(stocksPrices);
-        portfolioController = new PortfolioController(portfolio);
+        portfolioController = new PortfolioController(portfolio, stocksPrices);
     }
 
     public void start(int port) {

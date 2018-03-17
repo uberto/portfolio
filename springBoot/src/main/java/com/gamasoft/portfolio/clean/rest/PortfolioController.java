@@ -3,6 +3,7 @@ package com.gamasoft.portfolio.clean.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gamasoft.portfolio.clean.model.BuySellOrder;
 import com.gamasoft.portfolio.clean.model.Portfolio;
+import com.gamasoft.portfolio.clean.model.StocksPrices;
 import spark.Request;
 import spark.Response;
 
@@ -11,9 +12,11 @@ import java.io.IOException;
 public class PortfolioController {
 
     private final Portfolio portfolio;
+    private final StocksPrices stocksPrices;
 
-    public PortfolioController(Portfolio portfolio) {
+    public PortfolioController(Portfolio portfolio, StocksPrices stocksPrices) {
         this.portfolio = portfolio;
+        this.stocksPrices = stocksPrices;
     }
 
     private void executeOrder(BuySellOrder order) {
@@ -28,7 +31,7 @@ public class PortfolioController {
             resp.append("  qty: ");
             resp.append(portfolio.getQuantity(stockName));
             resp.append("  val: ");
-            double val = portfolio.getValue(stockName);
+            double val = portfolio.getValue(stockName).apply(stocksPrices);
             resp.append(val);
             resp.append("\n");
             tot += val;

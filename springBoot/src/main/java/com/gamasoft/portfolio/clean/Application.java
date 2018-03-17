@@ -15,7 +15,7 @@ public class Application {
         // or I can pass in the Webserver constructor
         // or I can use a global map (service locator)
         StocksPrices stocksPrices = new StocksPrices();
-        Portfolio portfolio = new PortfolioConcurrentMap(stocksPrices);
+        Portfolio portfolio = new PortfolioConcurrentMap();
 
         WebServer ws = new WebServer(stocksPrices, portfolio);
 

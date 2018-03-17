@@ -1,6 +1,7 @@
 package com.gamasoft.portfolio.clean.model;
 
 import java.util.Set;
+import java.util.function.Function;
 
 public interface Portfolio {
     void executeOrder(BuySellOrder order);
@@ -9,5 +10,5 @@ public interface Portfolio {
 
     int getQuantity(String stockName);
 
-    double getValue(String stockName);
+    Function<StocksPrices, Double> getValue(String stockName);
 }

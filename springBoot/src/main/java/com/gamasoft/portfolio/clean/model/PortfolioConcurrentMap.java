@@ -3,15 +3,13 @@ package com.gamasoft.portfolio.clean.model;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 
 public class PortfolioConcurrentMap implements Portfolio {
 
     Map<String, Integer> stocks = new ConcurrentHashMap<String, Integer>();
 
-    private StocksPrices stocksPrices;
-
-    public PortfolioConcurrentMap(StocksPrices stocksPrices) {
-        this.stocksPrices = stocksPrices;
+    public PortfolioConcurrentMap(){
     }
 
     @Override
@@ -26,7 +24,7 @@ public class PortfolioConcurrentMap implements Portfolio {
 
     @Override
     public Set<String> getAllStocks() {
-        return stocksPrices.keySet();
+        return stocks.keySet();
     }
 
     @Override
@@ -35,8 +33,8 @@ public class PortfolioConcurrentMap implements Portfolio {
     }
 
     @Override
-    public double getValue(String stockName) {
-        return getQuantity(stockName) * stocksPrices.getPrice(stockName);
+    public Function<StocksPrices, Double> getValue(String stockName) {
+        return stocksPrices -> getQuantity(stockName) * stocksPrices.getPrice(stockName);
 
     }
 }
