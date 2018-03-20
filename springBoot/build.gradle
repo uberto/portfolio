@@ -17,8 +17,6 @@ jar {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:1.5.7.RELEASE")
-    compile("org.thymeleaf:thymeleaf-spring4:1.5.7.RELEASE")
-    compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.5.7.RELEASE")
 
     compile group: 'com.sparkjava', name: 'spark-core', version: '2.6.0'
 
